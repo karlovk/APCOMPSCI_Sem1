@@ -13,7 +13,7 @@ public class Lab_02
 		int a = 12345;
 		int b = 101010;
 		
-		System.out.println(a + " el real madrid dr" + b );
+		System.out.println("kosta putin  \n" +a + " el real madrid \nbeverly hills , ca 929292  \ndr" + b);
 		
 		
 		int w = 3;

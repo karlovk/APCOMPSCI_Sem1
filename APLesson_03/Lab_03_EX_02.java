@@ -8,14 +8,14 @@ public class Lab_03_EX_02
 		Scanner keyboard = new Scanner(System.in);
 		
 		System.out.println("What is your height ? ");
-		int h = keyboard.nextInt();
+		double h = keyboard.nextInt();
 		
 		System.out.println("What is your weight ? ");
-		int w = keyboard.nextInt();
+		double w = keyboard.nextInt();
 		
-		int HH = h * h ;
-		int a = w / HH;
-		int bmi = 703 * a;
+		double HH = h * h ;
+		double a = w / HH;
+		double bmi = 703 * a;
 		
 		System.out.println("BMI is  " + bmi );
 		
