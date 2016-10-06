@@ -11,6 +11,7 @@ public class Lab_04_Exx_01
 		String item1 = kb.nextLine();
 		System.out.println("Please enter price: ");
 		double price1 = kb.nextDouble();
+
 		
 		
 		kb.nextLine();
