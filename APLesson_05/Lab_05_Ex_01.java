@@ -9,17 +9,18 @@ public class Lab_05_Ex_01
 	{
 		player = (int)(Math.random()*7)+1;
 		computer = (int)(Math.random()*7)+1;
+		
 		rollDice();
-		System.out.println("You rolled a" + player);
-		System.out.println("Computer rolled a" + computer);
+		
+		System.out.println("You rolled a " + player);
+		System.out.println("Computer rolled a " + computer);
 		System.out.println("Winner is " + winner);
 	}
 	
 	
 	
-	public static void rollDice(); 
+	public static void rollDice()
 	{
-		String winner = "";
 		
 		if (computer > player) 
 			winner = "computer";
