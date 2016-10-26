@@ -19,7 +19,17 @@ public class Lab_05_Adventure
 		if(choice == 1 )	
 		{
 			System.out.println("sadadas");
-			
+			int choice2 ==kb.nextInt();
+			if (choice2 == 1)
+			{
+					System.out.println("jsaljgfhsaof");
+	
+			}
+			else if (choice2 == 2)
+			{
+					System.out.println("jsaljgfhsaof");
+	
+			}
 			
 		}
 		else if (choice == 2 )
