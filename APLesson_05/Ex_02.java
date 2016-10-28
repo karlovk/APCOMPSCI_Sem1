@@ -41,8 +41,6 @@ public class Ex_02
 		format("Tax - ", tax);
 		format("Total - ", total);
 		
-		
-		
 	}
 	
 	public static double calcDisc(double sub)
@@ -56,7 +54,7 @@ public class Ex_02
 	public static void format(String item, double price)
 	{
 		
-		System.out.println("\n *\t%10s ....... \t%10.2f", item, price );
+		System.out.printf("\n*%10s ....... \t%10.2f", item, price );
 		
 	}
 	
