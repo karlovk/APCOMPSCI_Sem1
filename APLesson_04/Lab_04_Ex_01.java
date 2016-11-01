@@ -34,7 +34,7 @@ public class Lab_04_Ex_01
 		double total = subtotal + tax;
 		
 		
-		System.out.println("*            Subtotal: ........     "+ subtotal + "\n *             Tax: ........     " + tax + "\n *           Total: ........     "+ total);
+		System.out.println("*          Subtotal: ........     "+ subtotal + "\n*          Tax: ........     " + tax + "\n*          Total: ........     "+ total);
 	
 	}
 	
