@@ -3,12 +3,12 @@ public class Lab_05_Password
 {
 	static String pass;
 	static String user;
-	static String kb.next;
+	static String kb;
 	
-public static void main(String[]args )
+     public static void main(String[]args )
 	{
 		
-		kb.next = new Scanner(System.in);
+		kb = new Scanner(System.in);
 		pass = "password";
 		user = "username";
 		passCheck();
@@ -16,7 +16,7 @@ public static void main(String[]args )
 	}
 
 	public static void passCheck()
-{
+   {
 	System.out.println("Enter the username and password");
 	String guess1 = kb.next();
 	String guess2 = kb.next();
