@@ -8,9 +8,9 @@ public class Lab_06_Left_triangle
 		System.out.println("Please enter a word");
 		String word = kb.next();
 		
-		for(int  i = word.length(); i > 2;   i--)
+		for(int  i = 0; i <= word.length(); i++)
 		{
-			System.out.println(word.substring(0,i - 2));
+			System.out.println(word.substring(i));
 		}
 	}
 	
