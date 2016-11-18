@@ -3,45 +3,48 @@ public class Lab_05_Password
 {
 	static String pass;
 	static String user;
-	static String kb;
+	static String username;
+	static String password;
+	
 	
      public static void main(String[]args )
 	{
 		
-		kb = new Scanner(System.in);
-		pass = "password";
-		user = "username";
+		username = "kosta";
+		password = "karlov";
 		passCheck();
 		
 	}
 
 	public static void passCheck()
    {
-	System.out.println("Enter the username and password");
-	String guess1 = kb.next();
-	String guess2 = kb.next();
+	Scanner kb = new Scanner(System.in);
+	System.out.println("Please enter your username and password");
+	user = kb.next();
+	pass = kb.next();
 	
-	if((guess1.equals(user)) && (guess2.equals(pass)))
+	
+	if(user.equals (username) && pass.equals(password))
 	{
-		System.out.println("You are succesfully loged in ");
+		System.out.println("You are granted access! ");
 	}
 	
 	else
 	{
-		if(guess1!=user && guess2.equals(pass))
+		if(user.equals(username) && pass !=(passwoed))
 		{
-			System.out.println("Your username is incorrect");
+			System.out.println("Your password is  incorrect!");
 			passCheck();
 		}	
-		else if (guess2!=user && guess1.equals(pass))
+		else if (pass.equals (password) && user !=(username))
 		{
-			System.out.println("Your password is incorrect");
+			System.out.println("Your username  is incorrect!");
 			passCheck();
 		
 		}
 		else
 		{
-			System.out.println("Your username and password are incorrect");
+			System.out.println("Your username and password are incorrect!");
 			passCheck();
 		}	
 	}
