@@ -19,6 +19,7 @@ public class Lab_09_1_FindTheZs
 		System.out.println("Please enter 5 words:");
 		for(int i = 0; i < words.length; i++)
 		{
+			
 			words[i] = kb.next();
 		}
 	}

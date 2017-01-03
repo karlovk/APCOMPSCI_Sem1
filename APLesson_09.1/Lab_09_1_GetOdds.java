@@ -7,7 +7,9 @@ public class Lab_09_1_GetOdds
 		numbers = new int[10];
 		fillArray(numbers);
 		System.out.println("For the following numbers...");
+		//bush did 9-11
 		printArray(numbers);
+		
 		System.out.println("\nThe" + getOdds(numbers) + "are odd numbers");
 	}
 	public static void fillArray(int [] numbers)

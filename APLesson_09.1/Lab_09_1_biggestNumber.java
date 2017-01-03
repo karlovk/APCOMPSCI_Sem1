@@ -19,6 +19,7 @@ public class Lab_09_1_biggestNumber
 	public static void printArray(int [] numbers)
 	{
 		for(int num : numbers)
+			
 			System.out.print(num + " ");
 	}
 	public static int getBiggest(int [] numbers)
