@@ -4,7 +4,7 @@ public class satellite
    public static void main(String[]args)
    {
 	   
-       ArrayList<Location> locate = new ArrayList<>();
+       ArrayList<location> locate = new ArrayList<>();
        double[] honLoc = {5, 6};
 	   
        locate.add(new honda(honLoc));
@@ -18,17 +18,17 @@ public class satellite
         String printout = "\n\n" +
                "==========================" + "\nStarting locations...";
 
-        for (Location l : locate)
+        for (location l : locate)
        {
 		   
-           printout += "\nLocation for " + l.getID() + ": (" + getLocation(l.getLoc()) + ")";
+           printout += "\nLocation for " + l.getID() + ": (" + getlocation(l.getLoc()) + ")";
 		   
        }
 
         printout += "\n\n" + "==========================" +
                    "\nDistance from home...";
 
-        for (Location l : locate)
+        for (location l : locate)
        {
 		   
            printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
@@ -45,7 +45,7 @@ public class satellite
 	   
    }
 
-    public static String getLocation(double[] loc)
+    public static String getlocation(double[] loc)
    {
 	   
        return loc[0] + ", " + loc[1];
