@@ -59,18 +59,24 @@ public class satellite
 
        for (thecarclass l : locate)
        {
+		   
            printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc(), home)+ ")";
+		   
        }
        System.out.println(printout);
    }
 
     public static double getDistance(double[] thecarclass, double[] home)
    {
+	   
        return Math.round(Math.sqrt((Math.pow(thecarclass[0] - home[0], 2)+ Math.pow(thecarclass[1] - home[1], 2))));
+	   
    }
 
     public static String getLocation(double[] loc)
    {
+	   
        return loc[0] + ", " + loc[1];
+	   
    }
 }

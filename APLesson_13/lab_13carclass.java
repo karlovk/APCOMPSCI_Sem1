@@ -1,14 +1,14 @@
-public class lab_13carclass extends lab_13toysore
+public class lab_13carclass extends lab_13toyclass
 {
+	
 	public lab_13carclass()
 	{
 		super();
 	}
 	
-	public lab_13carclass(String nm)
+	public lab_13carclass(String N)
 	{
-	
-		super(nm);
+		super(N);
 	}
 	
 	public String getType()
@@ -16,3 +16,4 @@ public class lab_13carclass extends lab_13toysore
 		return "Car";
 	}
 }
+	

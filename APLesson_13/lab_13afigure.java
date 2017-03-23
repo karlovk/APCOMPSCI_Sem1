@@ -1,13 +1,14 @@
 public class lab_13afigure extends lab_13toyclass
 {
+	
 	public lab_13afigure()
 	{
 		super();
 	}
 	
-	public lab_13afigure(String nm)
+	public lab_13afigure(String N)
 	{
-		super(nm);
+		super(N);
 	}
 	
 	public String getType()
@@ -15,3 +16,4 @@ public class lab_13afigure extends lab_13toyclass
 		return "Action Figure";
 	}
 }
+	

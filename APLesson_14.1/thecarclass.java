@@ -15,9 +15,9 @@ public class thecarclass implements location
 	public void move(double X, double Y)
 	{
 		
-		location[0] += X;
+		locat[0] += X;
 		
-		location[1] += Y;
+		locat[1] += Y;
 		
 	}
 	
@@ -31,7 +31,7 @@ public class thecarclass implements location
 	public double[] getLoc()
 	{
 		
-		return location;
+		return locat;
 		
 	}
 }
