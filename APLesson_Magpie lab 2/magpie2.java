@@ -1,10 +1,10 @@
-public class magpie
+public class magpie2
 {
 	/** Get a default greeting @return a greeting*/
 	public String getGreeting()
 	{
 		
-		return "Hello, talk with me please.";
+		return "Hello, please talk to me.";
 		
 	}
 	
@@ -13,12 +13,9 @@ public class magpie
 	 * 	Gives a response to a user statement
 	 *  @param statement (the user statement)
 	 * 	@return a response based on the rules given */
-	 
 	public String getResponse(String statement)
-	
 	{
 		String response = "";
-		
 
 		/** Exercise_01:
 		 * ==================================================
@@ -30,8 +27,7 @@ public class magpie
 		 if (statement.trim().length() == 0)
 		 {
 			 
-			 return "Say something, please.";
-			 
+			 return "Please, say something.";
 		 }
 
 
@@ -42,20 +38,20 @@ public class magpie
 		if (findKeyword(statement,"no") >= 0)
 		{
 			
-			response = "Why you gotta be so negative?";
+			response = "Why are so negative?";
 			
 		}
 
 		else if (findKeyword(statement,"brother") >= 0
 		
-				|| findKeyword(statement,"sister ") >= 0
+				|| findKeyword(statement,"sister") >= 0
 				
 				|| findKeyword(statement,"father") >= 0
 				
 				|| findKeyword(statement,"mother") >= 0)
 		{
 			
-			response = "Please tell something me about your family.";
+			response = "Tell me something more about your family.";
 			
 		}
 
@@ -74,44 +70,163 @@ public class magpie
 		 
 		 || findKeyword(statement,"dog") >= 0 
 		 
-		 || findKeyword(statement,"fish") >= 0
+		 || findKeyword(statement,"fish") >= 0 
 		 
 		 || findKeyword(statement,"turtle") >= 0)
 		{
 			
-			response = "Please tell me more about your pet";
+			response = "Tell me something more about your pet";
 			
 		}
 		 
-		 else if (findKeyword(statement,"robinette") >= 0)
-		 {
-			 
-			 response = "He sounds like a pretty good teacher";
-			 
-		 }
-		 
-		else
+		// Responses which require transformations
+		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			
-			response = getRandomResponse();
+			response = transformIWantToStatement(statement);
 			
 		}
-		return response;
-	}
 
+
+		else
+		{
+			// Look for a two word (you <something> me)
+			// pattern
+			int psn = findKeyword(statement, "you", 0);
+
+
+			if (psn >= 0 && findKeyword(statement, "me", psn) >= 0)
+			{
+				
+				response = transformYouMeStatement(statement);
+				
+			}
+			else
+			{
+				
+				response = getRandomResponse();
+				
+			}
+			
+		}
+		
+		return response;
+		
+	}
+/**
+* Take a statement with "I want to <something>." and transform it into
+* "What would it mean to <something>?"
+* @param statement the user statement, assumed to contain "I want to"
+* @return the transformed statement
+*/
+private String transformIWantToStatement(String statement)
+{
+	statement = statement.trim();
+	String lastChar = ".;,'!?&$`~\"";
+	
+	for (int i = 0; i < lastChar.length() - 1; i++)
+	{
+		
+		if(statement.substring(statement.length()-1,statement.length()).equals(lastChar.substring(i,i + 1)))
+		{
+			
+			statement = statement.substring(0,statement.length()-1);
+			
+			i = 0;
+			
+		}	
+	}
+	
+	int psn = findKeyword(statement,"I Want to");
+	
+	String restOfStatement = statement.substring(psn + 9, statement.length());
+	
+	if (restOfStatement.trim().equals(""))
+	{
+		
+		return "rare pepe does not approve";
+		
+	}
+	
+	return "What would it mean to " + restOfStatement.trim();
+  /**
+   * trim the statement
+   * variable lastChar = last character in statement
+   * if lastChar is a period...
+   *        remove the last character from statement
+   *
+   * Set new int psn to the result from...
+   *        findKeyword() method @param statement, goal is "I want to "
+   * Set new String restOfStatement to the rest of statement after the
+   * "I want to ".
+   * /
+   * return "What would it mean to" + restOfStatement; **/
+}
+
+/**
+* Take a statement with "you <something> me" and transform it into
+* "What makes you think that I <something> you?"
+* @param statement the user statement, assumed to contain "you" followed by "me"
+* @return the transformed statement
+*/
+private String transformYouMeStatement(String statement)
+{
+	statement = statement.trim();
+	String lastChar = ".;,'!?&$`~\"";
+	
+	for (int i = 0; i < lastChar.length() - 1; i++)
+	{
+		if(statement.substring(statement.length()-1,statement.length()).equals(lastChar.substring(i,i + 1)))
+		{
+			statement = statement.substring(0,statement.length()-1);
+			i = 0;
+		}	
+	}
+	
+	int psnOfYou = findKeyword(statement,"you");
+	
+	int psnOfMe = findKeyword(statement,"me",psnOfYou + 3);
+	
+	String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe - 1);
+	
+	if (restOfStatement.trim().equals(""))
+	{
+		return "Be clear m8 or it is b8";
+	}
+	
+	return "What makes you think that I " + restOfStatement.trim() + " you?";
+	
+  /**
+   * trim the statement
+   * Set new String lastChar to the last character in statement
+   * if lastChar is a period...
+   *        remove the period
+   *
+   * Set new int psnOfYou to the result of findKeyword
+   *        @param statement and "you"
+   * Set new int psnOfMe to the result of findKeyword
+   *      @param statement, "me", and psnOfYou + 3
+   * Set new String restOfStatement to the rest of statement after "You" + 3,
+   * and before "me".
+   *
+   * return "What makes you think that I " + restOfStatement + "you?"
+   * */
+}
+	
 	/** Ex_02: The findKeyword() Method...
 	 * ========================================================= */
 	private int findKeyword(String statement, String goal, int startPos)
 	{
-		
 		String phrase = " " + statement.trim().toLowerCase() + " ";
-		int psn = phrase.indexOf(goal,startPos);
+		int psn = phrase.indexOf(goal.toLowerCase(),startPos);
 		if (psn >= 0)
 		{
-			
 			int before = psn - 1;
+			
 			int after = psn + goal.length();
+			
 			boolean comparesidesbefore = phrase.substring(before,before + 1).compareTo("a") >= 0 && phrase.substring(before,before + 1).compareTo("a") < 26;
+			
 			boolean comparesidesafter = phrase.substring(after,after + 1).compareTo("a") >= 0 && phrase.substring(after,after + 1).compareTo("a") < 26;
 
 			if (!(comparesidesbefore || comparesidesafter))
@@ -186,8 +301,9 @@ public class magpie
 			response = "Do you really think so?";
 		
 		else if (whichResponse == 3)
-			response = "I don't understand you.";
+			response = "You don't say.";
 
 		return response;
+		
 	}
 }
