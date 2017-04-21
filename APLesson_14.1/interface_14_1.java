@@ -1,6 +1,8 @@
-public interface Lab_14_Ex_1_Interface
+public interface interface_14_1
 {
+	
 	double[] getLoc();
 	int getID();
+	
 }
 	

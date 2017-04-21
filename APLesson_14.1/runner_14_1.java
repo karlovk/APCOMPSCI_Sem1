@@ -5,7 +5,7 @@ public class runner_14_1
 {
    public static void main(String[]args)
    {
-       ArrayList<interface_14_1> locate = new ArrayList<>();
+       ArrayList< interface_14_1 > locate = new ArrayList<>();
 	   
        double[] honLoc = {5, 6};
 	   

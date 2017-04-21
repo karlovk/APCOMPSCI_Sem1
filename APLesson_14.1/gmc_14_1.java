@@ -56,6 +56,8 @@ public class gmc_14_1 implements interface_14_1
 	
 	public double[] getLoc()
 	{
+		
 		return (new double[]{x,y});
+		
 	}
 }
